@@ -18,7 +18,7 @@ func Convert(input int) string {
 		rain += "Plong"
 	}
 	if rain == "" {
-		rain = strconv.FormatInt(int64(input), 10)
+		rain = strconv.Itoa(input)
 	}
 
 	return rain
