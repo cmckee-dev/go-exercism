@@ -1,20 +1,19 @@
-// Package hamming provides the Hamming Distabce function for DNA calculations.
+// Package hamming provides the Hamming Distance function for DNA calculations.
 package hamming
 
-import (
-	"errors"
-)
+import "errors"
 
 // Distance calculates the number of differences between two strands of DNA.
 func Distance(a, b string) (int, error) {
-	var distance int
+	rs1, rs2 := []rune(a), []rune(b)
 
-	if len(a) != len(b) {
-		return -1, errors.New("DNA strands are not the same length.")
+	if len(rs1) != len(rs2) {
+		return 0, errors.New("dna strands are not the same length")
 	}
 
-	for i := 0; i < len(a); i++ {
-		if a[i] != b[i] {
+	var distance int
+	for i := 0; i < len(rs1); i++ {
+		if rs1[i] != rs2[i] {
 			distance++
 		}
 	}
